@@ -1,4 +1,5 @@
 import express from "express";
+import cookieparser from "cookie-parser";
 import "dotenv/config";
 import path from "path";
 
@@ -9,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json({ limit: "5mb" }));
+app.use(cookieparser());
 
 app.use("/api/auth", authRoutes);
 
