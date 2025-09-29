@@ -4,6 +4,7 @@ import "dotenv/config";
 import path from "path";
 
 import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(cookieparser());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 const __dirname = path.resolve();
 
